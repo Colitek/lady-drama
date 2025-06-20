@@ -108,7 +108,7 @@ useEffect(() => {
     <div className="bg-white text-gray-900 font-sans">
       {/* HEADER */}
       {showCountdown && timeLeft && (
-  <div className="bg-black text-white text-sm text-center py-2 font-medium tracking-wide">
+  <div className="bg-black text-white text-sm text-center py-2 font-medium tracking-wide text-xs-mobile">
     {timeLeft}
   </div>
 )}
@@ -171,6 +171,25 @@ useEffect(() => {
           </nav>
         </div>
       </header>
+
+<section className="video-container">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="video-bg"
+    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+  />
+  <div className="video-text">
+    <h2>LADY DRAMA SHOW</h2>
+    <p>SPRING CHAPTER</p>
+  </div>
+</section>
+
+
+
+
 
       {/* NOWA KOLEKCJA */}
       <section id="collection" className="bg-gray-100 py-20 px-6 md:px-0">
@@ -259,24 +278,24 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
             <input
               type="text"
               placeholder="Imię i nazwisko"
-              className="w-full p-4 rounded-lg border border-gray-500 bg-gray-800 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-900"
               required
             />
             <input
               type="email"
               placeholder="E-mail"
-              className="w-full p-4 rounded-lg border border-gray-500 bg-gray-800 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-900"
               required
             />
             <textarea
               rows="5"
               placeholder="Wiadomość"
-              className="w-full p-4 rounded-lg border border-gray-500 bg-gray-800 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-pink-500 resize-none"
+              className="w-full p-4 rounded-lg border  focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none text-gray-900"
               required
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-neutral-600 hover:bg-neutral-700 text-white py-4 rounded-lg font-semibold transition"
+              className="w-full bg-neutral-800 hover:bg-neutral-700 text-white py-4 rounded-lg font-semibold transition"
             >
               Wyślij wiadomość
             </button>

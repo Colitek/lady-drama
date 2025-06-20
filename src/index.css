@@ -8,6 +8,11 @@ html {
 
 /* Dodajemy do Tailwindowej warstwy utilities */
 @layer utilities {
+  @media (max-width: 500px) {
+    .text-xs-mobile {
+      font-size: 0.75rem !important; /* Tailwind's text-xs */
+    }
+  }
   .hover-custom {
     @apply transition;
     color: inherit; /* ważne: zachowuje obecny kolor tekstu */
@@ -31,4 +36,43 @@ html {
   .button-ladydrama:hover {
     background-color: #b89e96 !important;
   }
+
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-text {
+  position: absolute;
+  bottom: 20px; /* Od dołu */
+  left: 20px;   /* Od lewej */
+  color: white;
+  z-index: 2;
+  max-width: 40%; /* max szerokość tekstu */
+  font-family: 'Arial', sans-serif
+  /*text-shadow: 1px 1px 5px rgba(0,0,0,0.7); /* dla lepszej czytelności */
+}
+
+.video-text h2 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+}
+
+.video-text p {
+  margin: 0;
+  font-size: 1rem;
+}
 }
