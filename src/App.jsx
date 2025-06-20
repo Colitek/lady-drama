@@ -177,10 +177,13 @@ useEffect(() => {
           </div>
           <div className="flex-1">
             <img
-              src="/Main.png"
-              alt="Nowa kolekcja"
-              className="rounded-lg shadow-xl object-cover w-full max-h-[600px]"
-            />
+  src="/Main.png"
+  alt="Nowa kolekcja"
+  className="rounded-lg shadow-xl object-cover w-full max-h-[600px]"
+  onContextMenu={(e) => e.preventDefault()} // blokuje prawe kliknięcie
+  draggable={false} // uniemożliwia przeciąganie
+/>
+
           </div>
         </div>
       </section>
@@ -225,6 +228,9 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
     setSelectedIndex(index);
     setTimeout(() => setIsVisible(true), 40);
   }}
+  onContextMenu={(e) => e.preventDefault()}
+  draggable={false}
+  onDragStart={(e) => e.preventDefault()}
 />
               </div>
             ))}
@@ -296,7 +302,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Butik Vanessa",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -305,7 +311,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Butik Laleczka",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -314,7 +320,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Look Butik",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -323,7 +329,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Lena Butik",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -332,7 +338,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "My Rosses",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -341,7 +347,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "La Marie",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -350,7 +356,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Look Fashion",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -359,7 +365,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Dżoana Butik",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -368,7 +374,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "My Scarlet Butik",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -377,7 +383,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Nina Rossa Butik",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -386,7 +392,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Meddi Fashion",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -395,7 +401,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Monic Fashion",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -404,7 +410,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
           name: "Glow Up Butik",
           url: "https://www.facebook.com/TwojaStrona",
           icon: (
-            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.41c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.314h3.588l-.467 3.622h-3.12V24h6.116c.725 0 1.325-.6 1.325-1.324V1.325C24 .6 23.4 0 22.675 0z" />
             </svg>
           ),
@@ -460,23 +466,23 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
     }}
   >
     <img
-      src={selectedImage}
-      alt="Podgląd"
-      className={`max-w-[90%] max-h-[90%] rounded-lg shadow-lg transform transition-transform duration-300 ${
-        isVisible ? "scale-100" : "scale-90"
-      }`}
-      onClick={(e) => {
-        e.stopPropagation();
-        const rect = e.currentTarget.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-
-        if (clickX > rect.width / 2) {
-          setSelectedIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
-        } else {
-          setSelectedIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
-        }
-      }}
-    />
+  src={selectedImage}
+  alt="Podgląd"
+  className={`max-w-[90%] max-h-[90%] rounded-lg shadow-lg transform transition-transform duration-300 ${isVisible ? "scale-100" : "scale-90"}`}
+  onClick={(e) => {
+    e.stopPropagation();
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    if (clickX > rect.width / 2) {
+      setSelectedIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    } else {
+      setSelectedIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    }
+  }}
+  onContextMenu={(e) => e.preventDefault()}
+  draggable={false}
+  onDragStart={(e) => e.preventDefault()}
+/>
   </div>
 )}
 
