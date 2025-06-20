@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from 'swiper/modules';
 import "swiper/css";
+import AboutSection from "./About";
 
 const galleryImages = [
   "/1.png",
@@ -130,8 +131,9 @@ useEffect(() => {
           <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium">
             <a href="#collection" className="hover-custom">Kolekcja</a>
             <a href="#gallery" className="hover-custom">Galeria</a>
+            <a href="#about" className="hover-custom">O Marce</a>
             <a href="#contact" className="hover-custom">Kontakt</a>
-            <a href="#about" className="hover-custom">O Nas</a>
+            
           </nav>
 
           {/* Hamburger */}
@@ -218,6 +220,9 @@ useEffect(() => {
           </div>
         </div>
       </section>
+
+ <AboutSection />
+
            <section id="about" className="bg-gray-100 py-20 px-6 md:px-0">
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
     <div className="flex-1 text-center">
