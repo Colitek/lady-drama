@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from 'swiper/modules';
 import "swiper/css";
+
 const galleryImages = [
   "/1.png",
   "/2.png",
