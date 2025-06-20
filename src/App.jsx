@@ -44,6 +44,16 @@ useEffect(() => {
   const targetDate = new Date("2025-06-21T13:00:00");
   const hideAfterDays = 7;
 
+  const pluralize = (count, forms) => {
+    // forms: [pojedyncza, mnoga 2-4, mnoga 5+]
+    const absCount = Math.abs(count);
+    if (absCount === 1) return `${count} ${forms[0]}`;
+    if (absCount % 10 >= 2 && absCount % 10 <= 4 && (absCount % 100 < 10 || absCount % 100 >= 20)) {
+      return `${count} ${forms[1]}`;
+    }
+    return `${count} ${forms[2]}`;
+  };
+
   const updateCountdown = () => {
     const now = new Date();
     const difference = targetDate - now;
@@ -64,10 +74,10 @@ useEffect(() => {
     const seconds = Math.floor((difference / 1000) % 60);
 
     const parts = [];
-    if (days > 0) parts.push(`${days} dni`);
-    if (hours > 0) parts.push(`${hours} godzin`);
-    if (minutes > 0) parts.push(`${minutes} minut`);
-    if (seconds > 0) parts.push(`${seconds} sekund`);
+    if (days > 0) parts.push(pluralize(days, ["dzień", "dni", "dni"]));
+    if (hours > 0) parts.push(pluralize(hours, ["godzina", "godziny", "godzin"]));
+    if (minutes > 0) parts.push(pluralize(minutes, ["minuta", "minuty", "minut"]));
+    if (seconds > 0) parts.push(pluralize(seconds, ["sekunda", "sekundy", "sekund"]));
 
     setTimeLeft(`Do nowej kolekcji pozostało: ${parts.join(" ")}`);
   };
@@ -76,6 +86,7 @@ useEffect(() => {
   const timer = setInterval(updateCountdown, 1000);
   return () => clearInterval(timer);
 }, []);
+
 
 useEffect(() => {
   const handleKeyDown = (e) => {
@@ -116,10 +127,10 @@ useEffect(() => {
 
           {/* Desktop menu */}
           <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium">
-            <a href="#collection" className="hover:text-gray-500 transition">Kolekcja</a>
-            <a href="#gallery" className="hover:text-gray-500 transition">Galeria</a>
-            <a href="#contact" className="hover:text-gray-500 transition">Kontakt</a>
-            <a href="#about" className="hover:text-gray-500 transition">O Nas</a>
+            <a href="#collection" className="hover-custom">Kolekcja</a>
+            <a href="#gallery" className="hover-custom">Galeria</a>
+            <a href="#contact" className="hover-custom">Kontakt</a>
+            <a href="#about" className="hover-custom">O Nas</a>
           </nav>
 
           {/* Hamburger */}
@@ -154,9 +165,9 @@ useEffect(() => {
           `}
         >
           <nav className="flex flex-col gap-4 text-sm uppercase font-medium px-6 pb-6 pt-2">
-            <a href="#collection" onClick={() => setMenuOpen(false)} className="hover:text-gray-500 transition">Kolekcja</a>
-            <a href="#gallery" onClick={() => setMenuOpen(false)} className="hover:text-gray-500 transition">Galeria</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-gray-500 transition">Kontakt</a>
+            <a href="#collection" onClick={() => setMenuOpen(false)} className="hover-custom">Kolekcja</a>
+            <a href="#gallery" onClick={() => setMenuOpen(false)} className="hover-custom">Galeria</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} className="hover-custom">Kontakt</a>
           </nav>
         </div>
       </header>
@@ -171,7 +182,7 @@ useEffect(() => {
             <p className="text-gray-600 mb-8 max-w-md leading-relaxed">
               Połączenie odważnego designu z subtelną elegancją. Każdy element zaprojektowany z myślą o kobiecie, która nie boi się być widoczna.
             </p>
-            <button className="bg-neutral-600 hover:bg-neutral-700 text-white font-semibold px-8 py-3 rounded-lg transition">
+            <button className="button-ladydrama hover:bg-neutral-700 text-white font-semibold px-8 py-3 rounded-lg transition">
               Zobacz więcej
             </button>
           </div>
@@ -239,9 +250,9 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
       </section>
 
       {/* KONTAKT */}
-      <section id="contact" className="bg-gray-900 text-white py-20 px-6 md:px-0">
+      <section id="contact" className="button-ladydrama text-white py-20 px-6 md:px-0">
         <div className="max-w-2xl mx-auto">
-          <h3 className="text-4xl font-bold text-center mb-10 text-gray-500">
+          <h3 className="text-4xl font-bold text-center mb-10">
             Skontaktuj się z nami
           </h3>
           <form className="space-y-6">

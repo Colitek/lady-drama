@@ -5,3 +5,30 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Dodajemy do Tailwindowej warstwy utilities */
+@layer utilities {
+  .hover-custom {
+    @apply transition;
+    color: inherit; /* ważne: zachowuje obecny kolor tekstu */
+  }
+
+  .hover-custom:hover {
+    color: #D6B8AE;
+  }
+
+  .ladydrama {
+    color: #D6B8AE;
+  }
+
+  .ladydrama:hover {
+    color: #b89e96;
+  }
+    .button-ladydrama {
+    background-color: #D6B8AE !important;
+  }
+
+  .button-ladydrama:hover {
+    background-color: #b89e96 !important;
+  }
+}
