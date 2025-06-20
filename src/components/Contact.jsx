@@ -5,7 +5,7 @@ export default function Contact() {
     <section id="contact" className="button-ladydrama text-white py-20 px-6 md:px-0">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* FORMULARZ */}
-        <div>
+        <div className="ml-0 md:ml-[50px]">
           <h3 className="text-4xl font-bold text-center mb-10">
             Skontaktuj się z nami
           </h3>

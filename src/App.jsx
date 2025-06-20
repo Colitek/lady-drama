@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import Partners from "./components/Partners";
 import Footer from "./components/Footer";
 import SocialBar from "./components/SocialBar";
+import About from "./components/About";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
       <Video />
       <Collection />
       <AboutSection />
+      <About />
       <Gallery />
       <Contact />
       <Partners />

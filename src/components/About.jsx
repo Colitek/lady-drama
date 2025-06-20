@@ -14,7 +14,7 @@ export default function About() {
           <h2 className="text-5xl font-bold mb-6">
             Made in Poland
           </h2>
-          <p className="text-gray-600 mb-8 max-w-5xl leading-relaxed mx-auto">
+          <p className="text-gray-600 mb-8 max-w-5xl leading-relaxed mx-auto ml-0 md:ml-[50px]">
             {preventWidows(`Każdy projekt marki Lady Drama powstaje w 100% w Polsce – od pierwszego szkicu aż po ostatni szew. Nasze ubrania są efektem pasji, precyzji i czasu poświęconego na dopracowanie najdrobniejszych detali.
 
 Stawiamy na jakość, dlatego proces twórczy nigdy nie jest pośpieszany. Każda kolekcja to unikalna opowieść, dopracowana z myślą o kobietach, które cenią nie tylko piękno, ale i rzemiosło.
