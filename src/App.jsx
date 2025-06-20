@@ -41,7 +41,7 @@ const goPrev = () => {
 };
 
 useEffect(() => {
-  const targetDate = new Date("2025-06-19T23:45:00");
+  const targetDate = new Date("2025-06-21T13:00:00");
   const hideAfterDays = 7;
 
   const updateCountdown = () => {
