@@ -274,9 +274,7 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
   <div className="max-w-6xl mx-auto px-6">
     <h3 className="text-2xl font-bold text-center mb-8">Współpracują z nami</h3>
     <Swiper
-      modules={[Autoplay]}
-  spaceBetween={5}
-  slidesPerView={4.5}
+  modules={[Autoplay]}
   loop={true}
   freeMode={true}
   autoplay={{
@@ -284,13 +282,15 @@ Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po
     disableOnInteraction: false,
     pauseOnMouseEnter: false,
   }}
-  speed={10000}  // im większa wartość, tym wolniejszy i płynniejszy ruch
+  speed={8000}
+  slidesPerView={2.0} // <- domyślna liczba slajdów na najmniejszych ekranach
+  spaceBetween={0} // <- trochę oddechu między slajdami
   breakpoints={{
-    640: { slidesPerView: 2.5 },
-    768: { slidesPerView: 3.5 },
-    1024: { slidesPerView: 4.5 },
+    600: { slidesPerView: 3.2 },
+    768: { slidesPerView: 4.6 },
+    1024: { slidesPerView: 5.5 },
   }}
-    >
+>
       {[
         {
           name: "Butik Vanessa",

@@ -43,7 +43,8 @@
 
 .swiper-slide {
   margin: 0 !important;
+  margin-right: 5px !important; 
   padding: 0 !important;
-  width: auto !important;
-  flex-shrink: 0; /* ważne, żeby nie kurczyły się */
+  width: 100% !important;
+  flex-shrink: 0;
 }
