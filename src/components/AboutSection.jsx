@@ -10,7 +10,8 @@ export default function AboutSection() {
           </h2>
 
           {/* pionowa linia */}
-          <div className="absolute top-0 -right-6 h-full w-[2px] ] hidden md:block"></div>
+          <div className="absolute top-0 -right-6 h-full w-[2px] button-ladydrama hidden md:block"></div>
+
         </div>
 
         {/* Prawa kolumna */}
