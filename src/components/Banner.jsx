@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Banner() {
+  const [visible, setVisible] = useState(true);
   const [timeLeft, setTimeLeft] = useState("");
   const [showCountdown, setShowCountdown] = useState(true);
 
@@ -9,16 +10,10 @@ export default function Banner() {
     const hideAfterDays = 7;
 
     const pluralize = (count, forms) => {
-      // forms: [pojedyncza, mnoga 2-4, mnoga 5+]
       const absCount = Math.abs(count);
       if (absCount === 1) return `${count} ${forms[0]}`;
-      if (
-        absCount % 10 >= 2 &&
-        absCount % 10 <= 4 &&
-        (absCount % 100 < 10 || absCount % 100 >= 20)
-      ) {
+      if (absCount % 10 >= 2 && absCount % 10 <= 4 && (absCount % 100 < 10 || absCount % 100 >= 20))
         return `${count} ${forms[1]}`;
-      }
       return `${count} ${forms[2]}`;
     };
 
@@ -55,7 +50,16 @@ export default function Banner() {
     return () => clearInterval(timer);
   }, []);
 
-  if (!showCountdown || !timeLeft) return null;
+  // Scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY === 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!showCountdown || !timeLeft || !visible) return null;
 
   return (
     <div className="bg-black text-white text-sm text-center py-2 font-medium tracking-wide text-xs-mobile">
