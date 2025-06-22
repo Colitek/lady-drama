@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const galleryImages = [
-  "/1.png",
-  "/2.png",
-  "/3.png",
-  "/4.png",
-  "/5.png",
-  "/6.png"
+  "images-webp/1.webp",
+  "images-webp/2.webp",
+  "images-webp/3.webp",
+  "images-webp/4.webp",
+  "images-webp/5.webp",
+  "images-webp/6.webp"
 ];
 
 export default function Gallery() {

@@ -17,7 +17,7 @@ export default function Collection() {
         </div>
         <div className="flex-1">
           <img
-            src="/Main.png"
+            src="images-webp/Main.webp"
             alt="Nowa kolekcja"
             className="rounded-lg shadow-xl object-cover w-full max-h-[600px]"
             onContextMenu={(e) => e.preventDefault()}
