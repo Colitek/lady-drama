@@ -35,7 +35,9 @@ export default function Home() {
        <Gallery />
        <Contact />
        <Partners />
+
        <Footer />
+       
      </div>
 </>
 );

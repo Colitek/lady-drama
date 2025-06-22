@@ -6,22 +6,29 @@ export default function Menu() {
   const [showMenu, setShowMenu] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setShowMenu(false); // scroll down - hide
-      } else {
-        setShowMenu(true); // scroll up - show
-      }
+    const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 80;
+    setShowMenu(!isScrollingDown);
+    setLastScrollY(currentScrollY);
+  };
 
-      setLastScrollY(currentScrollY);
-    };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+// emituj zmianę do SocialBar
+useEffect(() => {
+  window.dispatchEvent(new CustomEvent("menu-visibility", { detail: showMenu }));
+}, [showMenu]);
+
+useEffect(() => {
+  // emit initial state on mount
+  window.dispatchEvent(new CustomEvent("menu-visibility", { detail: true }));
+}, []);
+
 
   return (
     <header

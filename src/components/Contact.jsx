@@ -45,20 +45,24 @@ export default function Contact() {
     <h4 className="text-2xl font-semibold">Dane kontaktowe</h4>
     <p>
       <strong>Adres:</strong><br />
-      ul. Przykładowa 123<br />
-      00-001 Warszawa
+      C.H. Ptak, ul. Rzemieślnicza 35,<br />
+      Hala G, Ulica 6, Box 16a<br />
+      95-030 Rzgów  
     </p>
     <p>
       <strong>E-mail:</strong><br />
-      kontakt@ladydrama.pl
+      <a href="mailto:verapbylucca77@gmail.com" className=" hover:underline">
+        verapbylucca77@gmail.com
+        </a>
     </p>
     <p>
       <strong>Telefon:</strong><br />
-      +48 123 456 789
-    </p>
-    <p>
-      <strong>Godziny otwarcia:</strong><br />
-      Pon–Pt: 9:00–17:00
+       <a href="tel:+48696971370" className="hover:underline">
+        (48) 696 971 370
+        </a><br />
+               <a href="tel:+48519108317" className="hover:underline">
+        (48) 519 108 317
+        </a>
     </p>
   </div>
 </div>

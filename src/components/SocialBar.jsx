@@ -1,39 +1,81 @@
-// SocialBar.jsx
 import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaInstagram, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function SocialBar() {
-  const [offsetTop, setOffsetTop] = useState(120);
+  const [offsetTop, setOffsetTop] = useState(null); // start null
+  const [menuVisible, setMenuVisible] = useState(true);
+  const [bannerVisible, setBannerVisible] = useState(false);
+  const [initialized, setInitialized] = useState(false);
+
+  const updateOffset = (menuNowVisible, bannerNowVisible) => {
+    const menu = document.getElementById("menu-container");
+    let offset = 20;
+
+    if (menuNowVisible && menu) {
+      offset = menu.offsetHeight + 20;
+    } else if (!menuNowVisible && bannerNowVisible) {
+      const banner = document.querySelector("header > div:first-child");
+      if (banner) {
+        offset = banner.offsetHeight + 20;
+      }
+    }
+
+    setOffsetTop(offset);
+  };
 
   useEffect(() => {
-    const updateOffset = () => {
-      const menu = document.getElementById("menu-bar");
-      if (menu) {
-        const height = menu.offsetHeight;
-        setOffsetTop(height + 10);
-      }
+    const handleMenuVisibility = (e) => {
+      const isVisible = e.detail;
+      setMenuVisible(isVisible);
+      setTimeout(() => updateOffset(isVisible, bannerVisible), 0);
     };
 
-    updateOffset();
-    window.addEventListener("resize", updateOffset);
-    return () => window.removeEventListener("resize", updateOffset);
-  }, []);
+    const handleBannerVisibility = (e) => {
+      const isVisible = e.detail;
+      setBannerVisible(isVisible);
+      setTimeout(() => updateOffset(menuVisible, isVisible), 0);
+    };
+
+    window.addEventListener("menu-visibility", handleMenuVisibility);
+    window.addEventListener("banner-visibility", handleBannerVisibility);
+
+    setTimeout(() => {
+      const menu = document.getElementById("menu-container");
+      if (menu) {
+        setOffsetTop(menu.offsetHeight + 20);
+      } else {
+        setOffsetTop(60); // jakaś domyślna wartość, żeby socialbar nie startował na 0
+      }
+      setInitialized(true);
+    }, 0);
+
+    return () => {
+      window.removeEventListener("menu-visibility", handleMenuVisibility);
+      window.removeEventListener("banner-visibility", handleBannerVisibility);
+    };
+  }, [menuVisible, bannerVisible]);
 
   return (
     <div
-      className="hidden md:flex fixed left-0 z-40 flex-col space-y-4"
-      style={{ top: `${offsetTop}px` }}
+      className={`hidden md:flex fixed left-0 z-40 flex-col space-y-4 ${
+        initialized ? "transition-all duration-300 ease-in-out" : ""
+      }`}
+      style={{ top: initialized && offsetTop !== null ? `${offsetTop}px` : "60px" }}
     >
-      {[{
-        icon: <FaFacebookF size={20} />,
-        url: "https://www.facebook.com/profile.php?id=100091560759911",
-      }, {
-        icon: <FaInstagram size={20} />,
-        url: "https://www.instagram.com/ladydrama_oficial/",
-      }, {
-        icon: <FaMapMarkerAlt size={20} />,
-        url: "https://maps.app.goo.gl/uuNykf6PtA4EYDTV7",
-      }].map((item, index) => (
+      {[
+        {
+          icon: <FaFacebookF size={20} />,
+          url: "https://www.facebook.com/profile.php?id=100091560759911",
+        },
+        {
+          icon: <FaInstagram size={20} />,
+          url: "https://www.instagram.com/ladydrama_oficial/",
+        },
+        {
+          icon: <FaMapMarkerAlt size={20} />,
+          url: "https://maps.app.goo.gl/uuNykf6PtA4EYDTV7",
+        },
+      ].map((item, index) => (
         <a
           key={index}
           href={item.url}

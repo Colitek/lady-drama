@@ -5,17 +5,19 @@ export default function Banner() {
   const [timeLeft, setTimeLeft] = useState("");
   const [showCountdown, setShowCountdown] = useState(true);
 
+  // Funkcja do odmiany słów (dni, godziny, minuty itd.)
+  const pluralize = (count, forms) => {
+    const absCount = Math.abs(count);
+    if (absCount === 1) return `${count} ${forms[0]}`;
+    if (absCount % 10 >= 2 && absCount % 10 <= 4 && (absCount % 100 < 10 || absCount % 100 >= 20))
+      return `${count} ${forms[1]}`;
+    return `${count} ${forms[2]}`;
+  };
+
+  // Aktualizacja licznika odliczania
   useEffect(() => {
     const targetDate = new Date("2025-06-21T13:00:00");
     const hideAfterDays = 7;
-
-    const pluralize = (count, forms) => {
-      const absCount = Math.abs(count);
-      if (absCount === 1) return `${count} ${forms[0]}`;
-      if (absCount % 10 >= 2 && absCount % 10 <= 4 && (absCount % 100 < 10 || absCount % 100 >= 20))
-        return `${count} ${forms[1]}`;
-      return `${count} ${forms[2]}`;
-    };
 
     const updateCountdown = () => {
       const now = new Date();
@@ -50,15 +52,22 @@ export default function Banner() {
     return () => clearInterval(timer);
   }, []);
 
-  // Scroll detection
+  // Wykrywanie scrolla i ustawienie widoczności
   useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY === 0);
+    const updateBannerVisibility = () => {
+      const isVisible = window.scrollY === 0;
+      setVisible(isVisible);
+      window.dispatchEvent(new CustomEvent("banner-visibility", { detail: isVisible }));
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Wywołaj raz przy załadowaniu strony
+    updateBannerVisibility();
+
+    window.addEventListener("scroll", updateBannerVisibility);
+    return () => window.removeEventListener("scroll", updateBannerVisibility);
   }, []);
 
+  // Nie renderuj, jeśli nie trzeba
   if (!showCountdown || !timeLeft || !visible) return null;
 
   return (
