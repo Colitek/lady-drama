@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="button-ladydrama text-white py-20 px-6 md:px-0">
+    <section id="contact" className="bg-ladydrama-light text-white py-20 px-6 md:px-0">
       <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_auto_1fr] gap-12 items-center">
   {/* FORMULARZ */}
   <div className="ml-0 md:ml-[50px]">
@@ -30,7 +30,7 @@ export default function Contact() {
       ></textarea>
       <button
         type="submit"
-        className="w-full bg-neutral-800 hover:bg-neutral-700 text-white py-4 rounded-lg font-semibold transition"
+        className="w-full bg-ladydrama hover:bg-ladydrama-dark text-white py-4 rounded-lg font-semibold transition"
       >
         Wyślij wiadomość
       </button>

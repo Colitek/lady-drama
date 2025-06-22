@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ladydrama-light: #D6B8AE;
+  --ladydrama: #B38B82;
+  --ladydrama-dark: #8E5E57;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -81,7 +81,7 @@ export default function SocialBar() {
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#D6B8AE] hover:bg-[#cfaea4] text-white p-3 rounded-lg transition duration-300 shadow-md ml-0"
+          className="bg-ladydrama hover:bg-ladydrama-dark text-white p-3 rounded-lg transition duration-300 shadow-md ml-0"
         >
           {item.icon}
         </a>

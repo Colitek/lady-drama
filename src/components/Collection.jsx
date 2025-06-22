@@ -11,7 +11,7 @@ export default function Collection() {
           <p className="text-gray-600 mb-8 max-w-md leading-relaxed">
             Połączenie odważnego designu z subtelną elegancją. Każdy element zaprojektowany z myślą o kobiecie, która nie boi się być widoczna.
           </p>
-          <button className="button-ladydrama hover:bg-neutral-700 text-white font-semibold px-8 py-3 rounded-lg transition">
+          <button className="bg-ladydrama hover:bg-ladydrama-dark text-white font-semibold px-8 py-3 rounded-lg transition">
             Zobacz więcej
           </button>
         </div>

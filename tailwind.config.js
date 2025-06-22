@@ -4,7 +4,15 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
-  },
+  extend: {
+    colors: {
+      ladydrama: {
+        light: "var(--ladydrama-light)",
+        DEFAULT: "var(--ladydrama)",
+        dark: "var(--ladydrama-dark)"
+      }
+    }
+  }
+},
   plugins: [],
 }
