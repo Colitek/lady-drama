@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --ladydrama-light: #D6B8AE;
-  --ladydrama: #B38B82;
-  --ladydrama-dark: #8E5E57;
+  --ladydrama-lightest: #E8D7D1; /* bardzo jasny, subtelny */
+  --ladydrama-light:    #D6B8AE; /* Twój oryginalny kolor */
+  --ladydrama:          #B38B82; /* bazowy (średni) */
+  --ladydrama-dark:     #8E5E57; /* ciemny */
+  --ladydrama-darker:   #6F4841; /* mocno przygaszony, głęboki */
+  --ladydrama-darkest:  #57332E; /* prawie brunatny, bardzo ciemny */
 }
 
 html {

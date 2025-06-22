@@ -6,12 +6,15 @@ export default {
   theme: {
   extend: {
     colors: {
-      ladydrama: {
-        light: "var(--ladydrama-light)",
-        DEFAULT: "var(--ladydrama)",
-        dark: "var(--ladydrama-dark)"
-      }
-    }
+  ladydrama: {
+    lightest: "var(--ladydrama-lightest)",
+    light: "var(--ladydrama-light)",
+    DEFAULT: "var(--ladydrama)",
+    dark: "var(--ladydrama-dark)",
+    darker: "var(--ladydrama-darker)",
+    darkest: "var(--ladydrama-darkest)"
+  }
+}
   }
 },
   plugins: [],
