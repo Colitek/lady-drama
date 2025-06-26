@@ -13,11 +13,19 @@ import Partners from "../components/Partners";
 import Footer from "../components/Footer";
 import SocialBar from "../components/SocialBar";
 import About from "../components/About";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
 
   return (
     <>
+    <Helmet>
+        <title>Lady Drama – Polska marka odzieżowa premium dla kobiet</title>
+        <meta
+          name="description"
+          content="Lady Drama – Polska marka odzieżowa premium dla kobiet. Stylowe i wysokiej jakości ubrania, które podkreślą Twoją wyjątkowość."
+        />
+      </Helmet>
     
     
       <div className="bg-white text-gray-900 font-sans">

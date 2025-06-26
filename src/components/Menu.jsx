@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Banner from "./Banner";
+import LanguageSwitcher from "./LanguageSwitcher";
+
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,6 +32,8 @@ useEffect(() => {
 }, []);
 
 
+
+
   return (
     <header
       id="menu-container" // <-- TUTAJ ważne id wrappera całego menu + banner
@@ -50,20 +54,29 @@ useEffect(() => {
             />
           </a>
 
-          <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium">
-            <a href="#collection" className="hover-custom">
-              Kolekcja
-            </a>
-            <a href="#gallery" className="hover-custom">
-              Galeria
-            </a>
-            <a href="#about" className="hover-custom">
-              O Marce
-            </a>
-            <a href="#contact" className="hover-custom">
-              Kontakt
-            </a>
-          </nav>
+<div className="hidden md:flex items-center space-x-6">
+  <nav className="flex space-x-8 text-sm uppercase font-medium mr-6">
+    <a href="#collection" className="hover-custom">
+      Kolekcje
+    </a>
+    <a href="#gallery" className="hover-custom">
+      Galeria
+    </a>
+    <a href="#about" className="hover-custom">
+      O Marce
+    </a>
+    <a href="#cooperation" className="hover-custom">
+      Współpraca
+    </a>
+    <a href="#contact" className="hover-custom">
+      Kontakt
+    </a>
+    
+  </nav>
+  <LanguageSwitcher />
+
+</div>
+
 
           <button
             className="md:hidden relative w-6 h-6 focus:outline-none"
@@ -99,7 +112,7 @@ useEffect(() => {
               onClick={() => setMenuOpen(false)}
               className="hover-custom"
             >
-              Kolekcja
+              Kolekcje
             </a>
             <a
               href="#gallery"
@@ -115,6 +128,13 @@ useEffect(() => {
             >
               O Marce
             </a>
+                        <a
+              href="#cooperation"
+              onClick={() => setMenuOpen(false)}
+              className="hover-custom"
+            >
+              Współpraca
+            </a>
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
@@ -122,6 +142,9 @@ useEffect(() => {
             >
               Kontakt
             </a>
+    <div className="pt-2 border-t border-gray-200 ">
+      <LanguageSwitcher />
+    </div>
           </nav>
         </div>
       </div>
