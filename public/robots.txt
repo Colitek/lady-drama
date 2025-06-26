@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /user/
+Allow: /
+
+Sitemap: https://lady-drama.pl/sitemap.xml
