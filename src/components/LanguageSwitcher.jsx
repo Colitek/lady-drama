@@ -1,71 +1,90 @@
 import { useState, useEffect, useRef } from "react";
 import { LiaGlobeEuropeSolid } from "react-icons/lia";
+import { createPortal } from "react-dom";
 
 export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const buttonRef = useRef(null);
 
   const handleLanguageChange = (lang) => {
+    setOpen(false);
     if (lang === "pl") window.location.href = "/";
     if (lang === "en") window.location.href = "/en";
   };
 
-  // Zamknięcie dropdownu przy scrollu
+  // Kliknięcie poza zamyka
   useEffect(() => {
-    if (!open) return;
-
-    const handleScroll = () => setOpen(false);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [open]);
-
-  // Zamknięcie dropdownu przy kliknięciu poza
-  useEffect(() => {
-    if (!open) return;
-
     const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
         setOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open]);
+  }, []);
+
+  // Scroll zamyka
+  useEffect(() => {
+    const handleScroll = () => setOpen(false);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Oblicz pozycję globusa po kliknięciu
+  const handleToggle = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setPosition({
+        top: rect.bottom + window.scrollY + 4, // odległość od dołu przycisku
+        left: rect.left + window.scrollX,
+      });
+    }
+    setOpen(!open);
+  };
 
   return (
-    <div ref={ref} className="relative inline-block text-sm">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center space-x-1 text-gray-700 hover:text-[var(--ladydrama-light)] focus:outline-none"
-        aria-haspopup="true"
-        aria-expanded={open}
-      >
-        <LiaGlobeEuropeSolid
-          className="w-5 h-5 transition-colors duration-200"
-          style={{ color: "inherit" }}
-        />
-        <span className="hidden sm:inline-block text-xs font-medium">
-          PL / EN
-        </span>
-      </button>
+    <>
+      <div ref={buttonRef} className="relative z-50 inline-block text-sm">
+        <button
+          onClick={handleToggle}
+          className="flex items-center space-x-1 text-ladydrama hover:text-ladydrama-light transition"
+          aria-haspopup="true"
+          aria-expanded={open}
+        >
+          <LiaGlobeEuropeSolid className="w-5 h-5" />
+          <span className="text-xs font-medium">PL / EN</span>
+        </button>
+      </div>
 
-      {open && (
-        <div className="absolute right-0 mt-2 w-28 bg-white border border-gray-300 rounded-lg shadow-md z-50">
-          <button
-            onClick={() => handleLanguageChange("pl")}
-            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-[var(--ladydrama-light)] rounded-t-lg transition-colors duration-200"
+      {open &&
+        createPortal(
+          <div
+            className="absolute w-28 bg-white border border-gray-300 rounded-lg shadow-md z-[9999]"
+            style={{
+              position: "absolute",
+              top: `${position.top}px`,
+              left: `${position.left}px`,
+            }}
           >
-            Polski
-          </button>
-          <button
-            onClick={() => handleLanguageChange("en")}
-            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-[var(--ladydrama-light)] rounded-b-lg transition-colors duration-200"
-          >
-            English
-          </button>
-        </div>
-      )}
-    </div>
+            <button
+              onClick={() => handleLanguageChange("pl")}
+              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-ladydrama-light"
+            >
+              Polski
+            </button>
+            <button
+              onClick={() => handleLanguageChange("en")}
+              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-ladydrama-light"
+            >
+              English
+            </button>
+          </div>,
+          document.getElementById("portal-root")
+        )}
+    </>
   );
 }
