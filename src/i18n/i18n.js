@@ -4,29 +4,30 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import translationPL from './locales/pl.json';
 import translationEN from './locales/en.json';
+import translationDE from './locales/de.json';
+import translationES from './locales/es.json';
 
 const resources = {
   pl: { translation: translationPL },
   en: { translation: translationEN },
+  de: { translation: translationDE },
+  es: { translation: translationES },
 };
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "pl", // co jeśli nie uda się wykryć
-    resources: {
-      pl: { translation: translationPL },
-      en: { translation: translationEN },
-    },
+    resources,
+    fallbackLng: 'en', // fallback dla języków nieobsługiwanych
+    supportedLngs: ['pl', 'en', 'de', 'es'], // dodatkowe ograniczenie – tylko te języki
     detection: {
-      order: ["localStorage", "navigator"], // wykrywa język najpierw z localStorage, potem z przeglądarki
-      caches: ["localStorage"], // ZAPAMIĘTUJE wybrany język
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
     interpolation: {
       escapeValue: false,
     },
   });
-
 
 export default i18n;

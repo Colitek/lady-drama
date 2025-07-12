@@ -28,12 +28,38 @@
     "description":"LETNI ROZDZIAŁ"
   },
   "collection": {
-    "heading": "Kolekcja Lato 2025Już dostępna!",
+    "heading": "Kolekcja Lato 2025\nJuż dostępna!",
     "description": "Połączenie odważnego designu z subtelną elegancją. Każdy element zaprojektowany z myślą o kobiecie, która nie boi się być widoczna.",
     "button": "Zobacz więcej"
   },
    "about": {
     "heading": "Wyprodukowano w Polsce",
     "description": "Każdy projekt marki Lady Drama powstaje w 100% w Polsce – od pierwszego szkicu aż po ostatni szew. Nasze ubrania są efektem pasji, precyzji i czasu poświęconego na dopracowanie najdrobniejszych detali.Stawiamy na jakość, dlatego proces twórczy nigdy nie jest pośpieszany. Każda kolekcja to unikalna opowieść, dopracowana z myślą o kobietach, które cenią nie tylko piękno, ale i rzemiosło.Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po ręcznie tkane materiały z Japonii – wszystko po to, by zapewnić niespotykaną jakość i niepowtarzalne wzory, jakich nie znajdziesz nigdzie indziej."
+  },
+  "about_section": {
+    "brand": "O MARCE",
+    "title": "WITAJ W\nŚWIECIE\nLADY DRAMA®",
+    "paragraph1": "Marka Lady Drama® jest tworzona przez kobietę dla kobiet. Stawiamy na jakość i unikatowość. Cały produkt od początku do końca powstaje w Polsce.",
+    "paragraph2": "Projektujemy własne printy, by mieć pewność niepowtarzalności naszych kolekcji, które kierujemy dla kobiet ceniących oryginalność i nieszablonowość. Nowoczesnych i indywidualnych. Pasjonatek mody i stylu. Wyróżnia nas poczucie smaku i gustu, elegancja w każdym wydaniu oraz dbałość o najdrobniejszy detal."
+  },
+  "contact": {
+    "title": "Skontaktuj się z nami",
+    "form": {
+      "fullName": "Imię i nazwisko",
+      "email": "E-mail",
+      "message": "Wiadomość",
+      "send": "Wyślij wiadomość"
+    },
+    "details": {
+      "title": "Dane kontaktowe",
+      "addressLabel": "Adres:",
+      "addressLine1": "C.H. Ptak, ul. Rzemieślnicza 35,",
+      "addressLine2": "Hala G, Ulica 6, Box 16a",
+      "addressLine3": "95-030 Rzgów",
+      "emailLabel": "E-mail:",
+      "phoneLabel": "Telefon:"
+    }
   }
+  
+  
 }

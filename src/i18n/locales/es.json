@@ -1,0 +1,62 @@
+{
+  "menu": {
+    "collections": "Colecciones",
+    "gallery": "Galería",
+    "about": "Sobre la marca",
+    "cooperation": "Cooperación",
+    "contact": "Contacto"
+  },
+  "banner": {
+    "collectionAvailable": "¡La nueva colección ya está disponible!",
+    "timeLeft": "Tiempo restante para la nueva colección",
+    "day_singular": "día",
+    "day_few": "días",
+    "day_many": "días",
+    "hour_singular": "hora",
+    "hour_few": "horas",
+    "hour_many": "horas",
+    "minute_singular": "minuto",
+    "minute_few": "minutos",
+    "minute_many": "minutos",
+    "second_singular": "segundo",
+    "second_few": "segundos",
+    "second_many": "segundos"
+  },
+  "video": {
+    "title": "LADY DRAMA SHOW",
+    "description": "CAPÍTULO DE VERANO"
+  },
+  "collection": {
+    "heading": "Colección Verano 2025\n¡Ya disponible!",
+    "description": "Una combinación de diseño audaz con elegancia sutil. Cada pieza está diseñada para la mujer que no teme ser vista.",
+    "button": "Ver más"
+  },
+  "about": {
+    "heading": "Hecho en Polonia",
+    "description": "Cada proyecto de Lady Drama se crea 100% en Polonia, desde el primer boceto hasta la última costura. Nuestra ropa es el resultado de pasión, precisión y tiempo dedicado a perfeccionar los detalles más pequeños. Apostamos por la calidad, por eso el proceso creativo nunca se apresura. Cada colección es una historia única, diseñada para mujeres que valoran no solo la belleza sino también la artesanía. Traemos telas desde los rincones más remotos del mundo, desde sedas italianas hasta tejidos hechos a mano de Japón, todo para asegurar una calidad excepcional y patrones únicos que no encontrarás en ningún otro lugar."
+  },
+  "about_section": {
+    "brand": "SOBRE LA MARCA",
+    "title": "BIENVENIDA AL\nMUNDO DE\nLADY DRAMA®",
+    "paragraph1": "La marca Lady Drama® es creada por mujeres para mujeres. Apostamos por la calidad y la unicidad. Todo el producto se realiza en Polonia de principio a fin.",
+    "paragraph2": "Diseñamos nuestras propias impresiones para garantizar la exclusividad de nuestras colecciones, dirigidas a mujeres que valoran la originalidad y la singularidad. Modernas e individuales. Apasionadas por la moda y el estilo. Nos distingue el sentido del gusto y la elegancia en cada detalle, así como la atención al más mínimo detalle."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "form": {
+      "fullName": "Nombre y apellido",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "send": "Enviar mensaje"
+    },
+    "details": {
+      "title": "Datos de contacto",
+      "addressLabel": "Dirección:",
+      "addressLine1": "C.H. Ptak, ul. Rzemieślnicza 35,",
+      "addressLine2": "Pabellón G, Calle 6, Box 16a",
+      "addressLine3": "95-030 Rzgów",
+      "emailLabel": "Correo electrónico:",
+      "phoneLabel": "Teléfono:"
+    }
+  }
+}

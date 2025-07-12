@@ -1,31 +1,37 @@
-export default function AboutSection() {
+import React from "react";
+import { useTranslation } from "react-i18next";
+
+export default function about_sectionSection() {
+  const { t } = useTranslation();
+
+  // Tekst tytułu zawiera łamanie linii - możesz je rozbić na array
+  const titleLines = t("about_section.title").split("\n");
+
   return (
-    <section id="about" className="bg-white py-20 px-6 md:px-0">
+    <section id="about_section" className="bg-white py-20 px-6 md:px-0">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* Lewa kolumna */}
+        {/* Left column */}
         <div className="relative ml-0 md:ml-[50px]">
-          <span className="text-sm tracking-widest text-gray-400 uppercase block mb-4">O MARCE</span>
+          <span className="text-sm tracking-widest text-gray-400 uppercase block mb-4">
+            {t("about_section.brand")}
+          </span>
           <h2 className="text-5xl font-extrabold text-[#0E1528] leading-tight">
-            WITAJ W <br /> ŚWIECIE <br /> LADY DRAMA<sup>®</sup>
+            {titleLines.map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
           </h2>
 
-          {/* pionowa linia */}
+          {/* vertical line */}
           <div className="absolute top-0 -right-6 h-full w-[2px] button-ladydrama hidden md:block"></div>
-
         </div>
 
-        {/* Prawa kolumna */}
+        {/* Right column */}
         <div className="text-[#0E1528] space-y-6">
-          <p className="text-lg font-bold leading-relaxed">
-            Marka Lady Drama<sup>®</sup> jest tworzona przez kobietę dla kobiet. Stawiamy na jakość i unikatowość.
-            Cały produkt od początku do końca powstaje w Polsce.
-          </p>
-          <p className="text-gray-700 text-base leading-relaxed">
-            Projektujemy własne printy, by mieć pewność niepowtarzalności naszych kolekcji, które kierujemy
-            dla kobiet ceniących oryginalność i nieszablonowość. Nowoczesnych i indywidualnych.
-            Pasjonatek mody i stylu. Wyróżnia nas poczucie smaku i gustu, elegancja w każdym wydaniu
-            oraz dbałość o najdrobniejszy detal.
-          </p>
+          <p className="text-lg font-bold leading-relaxed">{t("about_section.paragraph1")}</p>
+          <p className="text-gray-700 text-base leading-relaxed">{t("about_section.paragraph2")}</p>
         </div>
       </div>
     </section>

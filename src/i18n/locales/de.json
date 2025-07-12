@@ -1,0 +1,62 @@
+{
+  "menu": {
+    "collections": "Kollektionen",
+    "gallery": "Galerie",
+    "about": "Über die Marke",
+    "cooperation": "Zusammenarbeit",
+    "contact": "Kontakt"
+  },
+  "banner": {
+    "collectionAvailable": "Neue Kollektion ist jetzt verfügbar!",
+    "timeLeft": "Bis zur neuen Kollektion verbleiben",
+    "day_singular": "Tag",
+    "day_few": "Tage",
+    "day_many": "Tage",
+    "hour_singular": "Stunde",
+    "hour_few": "Stunden",
+    "hour_many": "Stunden",
+    "minute_singular": "Minute",
+    "minute_few": "Minuten",
+    "minute_many": "Minuten",
+    "second_singular": "Sekunde",
+    "second_few": "Sekunden",
+    "second_many": "Sekunden"
+  },
+  "video": {
+    "title": "LADY DRAMA SHOW",
+    "description": "SOMMERKAPITEL"
+  },
+  "collection": {
+    "heading": "Sommerkollektion 2025\nJetzt verfügbar!",
+    "description": "Eine Verbindung von mutigem Design und subtiler Eleganz. Jedes Teil ist für die Frau entworfen, die keine Angst hat, gesehen zu werden.",
+    "button": "Mehr sehen"
+  },
+  "about": {
+    "heading": "Hergestellt in Polen",
+    "description": "Jedes Lady Drama Projekt entsteht zu 100 % in Polen – vom ersten Entwurf bis zur letzten Naht. Unsere Kleidung ist Ergebnis von Leidenschaft, Präzision und Zeit, die in die kleinsten Details investiert wird. Wir setzen auf Qualität, deshalb wird der kreative Prozess nie überstürzt. Jede Kollektion erzählt eine einzigartige Geschichte, entworfen für Frauen, die nicht nur Schönheit, sondern auch Handwerk schätzen. Die Stoffe beziehen wir aus den entferntesten Teilen der Welt – von italienischer Seide bis zu handgewebten Materialien aus Japan – alles, um eine unvergleichliche Qualität und einzigartige Muster zu gewährleisten, die Sie sonst nirgendwo finden."
+  },
+  "about_section": {
+    "brand": "ÜBER DIE MARKE",
+    "title": "WILLKOMMEN IN\nDER WELT VON\nLADY DRAMA®",
+    "paragraph1": "Die Marke Lady Drama® wird von Frauen für Frauen geschaffen. Wir setzen auf Qualität und Einzigartigkeit. Das gesamte Produkt entsteht von Anfang bis Ende in Polen.",
+    "paragraph2": "Wir entwerfen unsere eigenen Prints, um die Einzigartigkeit unserer Kollektionen zu gewährleisten, die sich an Frauen richten, die Originalität und Unkonventionalität schätzen. Modern und individuell. Mode- und Stilbegeisterte. Was uns auszeichnet, ist Geschmack und Eleganz in jeder Form sowie die Liebe zum kleinsten Detail."
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "form": {
+      "fullName": "Vor- und Nachname",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "send": "Nachricht senden"
+    },
+    "details": {
+      "title": "Kontaktdaten",
+      "addressLabel": "Adresse:",
+      "addressLine1": "C.H. Ptak, ul. Rzemieślnicza 35,",
+      "addressLine2": "Halle G, Straße 6, Box 16a",
+      "addressLine3": "95-030 Rzgów",
+      "emailLabel": "E-Mail:",
+      "phoneLabel": "Telefon:"
+    }
+  }
+}

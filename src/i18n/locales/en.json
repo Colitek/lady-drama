@@ -35,5 +35,29 @@
   "about": {
     "heading": "Made in Poland",
     "description": "Every Lady Drama design is created 100% in Poland – from the first sketch to the final stitch. Our garments are the result of passion, precision, and time spent perfecting every detail. We prioritize quality, so our creative process is never rushed. Each collection is a unique story, crafted for women who appreciate not only beauty but also craftsmanship. We source fabrics from all over the world – from Italian silks to handwoven materials from Japan – all to provide unmatched quality and patterns you won’t find anywhere else."
+  },
+  "about_section": {
+  "brand": "ABOUT THE BRAND",
+  "title": "WELCOME TO\nTHE WORLD OF\nLADY DRAMA®",
+  "paragraph1": "Lady Drama® is a brand created by women for women. We focus on quality and uniqueness. The entire product is made in Poland from start to finish.",
+  "paragraph2": "We design our own prints to ensure the uniqueness of our collections, which are aimed at women who value originality and unconventional style. Modern and individualistic. Fashion and style enthusiasts. What sets us apart is a sense of taste and elegance in every form, as well as attention to the smallest detail."
+},"contact": {
+    "title": "Contact Us",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "details": {
+      "title": "Contact Details",
+      "addressLabel": "Address:",
+      "addressLine1": "C.H. Ptak, ul. Rzemieślnicza 35,",
+      "addressLine2": "Hall G, Street 6, Box 16a",
+      "addressLine3": "95-030 Rzgów",
+      "emailLabel": "Email:",
+      "phoneLabel": "Phone:"
+    }
   }
+
 }

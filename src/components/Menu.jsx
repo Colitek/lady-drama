@@ -11,25 +11,33 @@ export default function Menu() {
 useEffect(() => {
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-
     const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 80;
     setShowMenu(!isScrollingDown);
     setLastScrollY(currentScrollY);
+
+    if (isScrollingDown && menuOpen) {
+      setMenuOpen(false);
+    }
   };
 
   window.addEventListener("scroll", handleScroll);
   return () => window.removeEventListener("scroll", handleScroll);
-}, [lastScrollY]);
+}, [lastScrollY, menuOpen]);
 
-// emituj zmianę do SocialBar
 useEffect(() => {
   window.dispatchEvent(new CustomEvent("menu-visibility", { detail: showMenu }));
 }, [showMenu]);
 
 useEffect(() => {
-  // emit initial state on mount
   window.dispatchEvent(new CustomEvent("menu-visibility", { detail: true }));
 }, []);
+
+useEffect(() => {
+  if (!showMenu && menuOpen) {
+    setMenuOpen(false);
+  }
+}, [showMenu, menuOpen]);
+
 
 
 

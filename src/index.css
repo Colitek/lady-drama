@@ -10,7 +10,7 @@
   --ladydrama-darker:   #6F4841; /* mocno przygaszony, głęboki */
   --ladydrama-darkest:  #57332E; /* prawie brunatny, bardzo ciemny */
 }
-
+  
 html {
   scroll-behavior: smooth;
 }

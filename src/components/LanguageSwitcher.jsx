@@ -11,23 +11,20 @@ export default function LanguageSwitcher() {
   const toggleOpen = () => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
-      const dropdownWidth = 112; // approx width of dropdown (w-28 = 7rem = 112px)
+      const dropdownWidth = 112; // 7rem = 112px
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
 
       let left = rect.left + rect.width / 2; // środek przycisku
-      // przesunięcie tak, aby dropdown był wyśrodkowany względem przycisku i nie wychodził poza ekran
       if (left + dropdownWidth / 2 > viewportWidth) {
-        left = viewportWidth - dropdownWidth / 2 - 8; // 8px margines od krawędzi
+        left = viewportWidth - dropdownWidth / 2 - 8;
       }
       if (left - dropdownWidth / 2 < 8) {
         left = dropdownWidth / 2 + 8;
       }
 
-      let top = rect.bottom + 4; // 4px odstęp od przycisku
-
-      // jeśli dropdown wyjdzie poza dół viewportu, pokaż go nad przyciskiem
-      const dropdownHeight = 2 * 40; // 2 przyciski po ok 40px wysokości (można dostosować)
+      let top = rect.bottom + 4;
+      const dropdownHeight = 4 * 40; // 4 przyciski, ~40px każdy
       if (top + dropdownHeight > viewportHeight) {
         top = rect.top - dropdownHeight - 4;
       }
@@ -60,6 +57,17 @@ export default function LanguageSwitcher() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Definicja obsługiwanych języków
+  const languages = [
+    { code: "pl", label: "Polski" },
+    { code: "en", label: "English" },
+    { code: "de", label: "Deutsch" },
+    { code: "es", label: "Español" },
+  ];
+
+  // Skrócony kod języka do wyświetlania (np. PL, EN, DE, ES)
+  const currentLang = (i18n.resolvedLanguage || i18n.language || "pl").slice(0, 2).toUpperCase();
+
   return (
     <div ref={buttonRef} className="inline-block z-50">
       <button
@@ -70,9 +78,7 @@ export default function LanguageSwitcher() {
         type="button"
       >
         <LiaGlobeEuropeSolid className="w-5 h-5" />
-        <span className="text-xs font-medium">
-          {(i18n.resolvedLanguage || i18n.language || "pl").slice(0, 2).toUpperCase()}
-        </span>
+        <span className="text-xs font-medium">{currentLang}</span>
       </button>
 
       {open && (
@@ -84,24 +90,18 @@ export default function LanguageSwitcher() {
             transform: "translateX(-50%)",
           }}
         >
-          <button
-            type="button"
-            onClick={() => changeLanguage("pl")}
-            className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
-              i18n.language === "pl" ? "font-bold text-ladydrama" : "text-gray-700"
-            }`}
-          >
-            Polski
-          </button>
-          <button
-            type="button"
-            onClick={() => changeLanguage("en")}
-            className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
-              i18n.language === "en" ? "font-bold text-ladydrama" : "text-gray-700"
-            }`}
-          >
-            English
-          </button>
+          {languages.map(({ code, label }) => (
+            <button
+              key={code}
+              type="button"
+              onClick={() => changeLanguage(code)}
+              className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
+                i18n.language === code ? "font-bold text-ladydrama" : "text-gray-700"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
         </div>
       )}
     </div>
