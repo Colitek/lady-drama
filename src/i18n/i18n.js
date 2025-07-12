@@ -11,18 +11,22 @@ const resources = {
 };
 
 i18n
-  .use(LanguageDetector) // wykrywanie języka z przeglądarki
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources,
-    fallbackLng: 'pl', // jeśli nie wykryje, użyje PL
-    interpolation: {
-      escapeValue: false, // react już domyślnie zabezpiecza
+    fallbackLng: "pl", // co jeśli nie uda się wykryć
+    resources: {
+      pl: { translation: translationPL },
+      en: { translation: translationEN },
     },
     detection: {
-      order: ['navigator', 'htmlTag'],
-      caches: [], // nie zapisuj w localStorage / cookie
+      order: ["localStorage", "navigator"], // wykrywa język najpierw z localStorage, potem z przeglądarki
+      caches: ["localStorage"], // ZAPAMIĘTUJE wybrany język
+    },
+    interpolation: {
+      escapeValue: false,
     },
   });
+
 
 export default i18n;

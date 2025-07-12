@@ -36,7 +36,7 @@ export default function Home() {
     <Menu />
   </div>
  <SocialBar />
-       <Video />
+       {/*<Video />*/}
        <Collection />
        <AboutSection />
        <About />
