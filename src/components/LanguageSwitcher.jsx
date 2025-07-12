@@ -60,9 +60,13 @@ export default function LanguageSwitcher() {
 </span>
       </button>
 
-      {open && (
+     {open && (
   <div
-    className="absolute top-full mt-2 right-0 w-28 bg-white border border-gray-300 rounded-lg shadow-md z-[9999]"
+    className="fixed w-28 bg-white border border-gray-300 rounded-lg shadow-md z-[9999]"
+    style={{
+      top: `${position.top}px`,
+      left: `${position.left}px`
+    }}
   >
     <button
       type="button"
@@ -84,6 +88,7 @@ export default function LanguageSwitcher() {
     </button>
   </div>
 )}
+
 
     </div>
   );
