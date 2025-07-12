@@ -53,6 +53,7 @@ export default function Gallery() {
     onSwipedDown: closeModal,
     onSwipedUp: closeModal,
     trackMouse: true,
+    preventScrollOnSwipe: true,
   });
 
   return (
