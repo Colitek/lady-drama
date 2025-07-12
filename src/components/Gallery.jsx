@@ -90,7 +90,7 @@ const goPrev = () => {
       {/* MODAL Z PODGLĄDEM ZDJĘCIA */}
       {selectedImage && (
   <div
-    className={`fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300 ${
+    className={`fixed inset-0 h-full w-full bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300 ${
       isVisible ? "opacity-100" : "opacity-0"
     }`}
     onClick={() => {
@@ -102,7 +102,7 @@ const goPrev = () => {
       <img
         src={selectedImage}
         alt="Podgląd"
-        className={`max-w-[90%] max-h-[90%] rounded-lg shadow-lg transform transition-transform duration-300 ${
+        className={`max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-lg transform transition-transform duration-300 ${
           isVisible ? "scale-100" : "scale-90"
         }`}
         onClick={(e) => {
@@ -126,6 +126,7 @@ const goPrev = () => {
     </div>
   </div>
 )}
+
 
     </>
   );
