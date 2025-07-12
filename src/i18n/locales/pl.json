@@ -1,6 +1,5 @@
 {
-  "welcome": "Witamy na naszej stronie",
-  "about": "O nas",
+
   "menu": {
     "collections": "Kolekcje",
     "gallery": "Galeria",
@@ -27,5 +26,14 @@
   "video": {
     "title":"LADY DRAMA SHOW",
     "description":"LETNI ROZDZIAŁ"
+  },
+  "collection": {
+    "heading": "Kolekcja Lato 2025Już dostępna!",
+    "description": "Połączenie odważnego designu z subtelną elegancją. Każdy element zaprojektowany z myślą o kobiecie, która nie boi się być widoczna.",
+    "button": "Zobacz więcej"
+  },
+   "about": {
+    "heading": "Wyprodukowano w Polsce",
+    "description": "Każdy projekt marki Lady Drama powstaje w 100% w Polsce – od pierwszego szkicu aż po ostatni szew. Nasze ubrania są efektem pasji, precyzji i czasu poświęconego na dopracowanie najdrobniejszych detali.Stawiamy na jakość, dlatego proces twórczy nigdy nie jest pośpieszany. Każda kolekcja to unikalna opowieść, dopracowana z myślą o kobietach, które cenią nie tylko piękno, ale i rzemiosło.Tkaniny sprowadzamy z najdalszych zakątków świata – od włoskich jedwabi po ręcznie tkane materiały z Japonii – wszystko po to, by zapewnić niespotykaną jakość i niepowtarzalne wzory, jakich nie znajdziesz nigdzie indziej."
   }
 }

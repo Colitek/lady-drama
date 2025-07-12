@@ -1,6 +1,5 @@
 {
-  "welcome": "Welcome to our website",
-  "about": "About us",
+
   "menu": {
     "collections": "Collections",
     "gallery": "Gallery",
@@ -27,5 +26,14 @@
   "video": {
     "title":"LADY DRAMA SHOW",
     "description":"SUMMER CHAPTER"
+  },
+   "collection": {
+    "heading": "Summer 2025 Collection\nNow available!",
+    "description": "A bold design meets subtle elegance. Every piece is crafted for the woman who isn’t afraid to be seen.",
+    "button": "See more"
+  },
+  "about": {
+    "heading": "Made in Poland",
+    "description": "Every Lady Drama design is created 100% in Poland – from the first sketch to the final stitch. Our garments are the result of passion, precision, and time spent perfecting every detail. We prioritize quality, so our creative process is never rushed. Each collection is a unique story, crafted for women who appreciate not only beauty but also craftsmanship. We source fabrics from all over the world – from Italian silks to handwoven materials from Japan – all to provide unmatched quality and patterns you won’t find anywhere else."
   }
 }

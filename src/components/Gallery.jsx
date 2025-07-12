@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
+import { useTranslation } from "react-i18next";
 
 const galleryImages = [
   "images-webp/1.webp",
@@ -55,12 +56,12 @@ export default function Gallery() {
     trackMouse: true,
     preventScrollOnSwipe: true,
   });
-
+  const { t } = useTranslation();
   return (
     <>
       <section id="gallery" className="py-20 px-6 md:px-0 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-4xl font-bold mb-12 text-center">Galeria</h3>
+          <h3 className="text-4xl font-bold mb-12 text-center">{t("menu.gallery")}</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {galleryImages.map((src, index) => (
               <div

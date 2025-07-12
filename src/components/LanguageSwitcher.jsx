@@ -61,34 +61,30 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div
-          className="absolute w-28 bg-white border border-gray-300 rounded-lg shadow-md z-[9999]"
-          style={{
-            top: position.top - window.scrollY + "px",
-            left: position.left - window.scrollX + "px",
-            position: "fixed",
-          }}
-        >
-          <button
-            type="button"
-            onClick={() => changeLanguage("pl")}
-            className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
-              i18n.language === "pl" ? "font-bold text-ladydrama" : "text-gray-700"
-            }`}
-          >
-            Polski
-          </button>
-          <button
-            type="button"
-            onClick={() => changeLanguage("en")}
-            className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
-              i18n.language === "en" ? "font-bold text-ladydrama" : "text-gray-700"
-            }`}
-          >
-            English
-          </button>
-        </div>
-      )}
+  <div
+    className="absolute top-full mt-2 right-0 w-28 bg-white border border-gray-300 rounded-lg shadow-md z-[9999]"
+  >
+    <button
+      type="button"
+      onClick={() => changeLanguage("pl")}
+      className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
+        i18n.language === "pl" ? "font-bold text-ladydrama" : "text-gray-700"
+      }`}
+    >
+      Polski
+    </button>
+    <button
+      type="button"
+      onClick={() => changeLanguage("en")}
+      className={`block w-full text-left px-4 py-2 text-sm hover:text-ladydrama-light ${
+        i18n.language === "en" ? "font-bold text-ladydrama" : "text-gray-700"
+      }`}
+    >
+      English
+    </button>
+  </div>
+)}
+
     </div>
   );
 }
