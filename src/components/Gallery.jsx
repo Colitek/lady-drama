@@ -51,6 +51,7 @@ export default function Gallery() {
     onSwipedLeft: goNext,
     onSwipedRight: goPrev,
     onSwipedDown: closeModal,
+    onSwipedUp: closeModal,
     trackMouse: true,
   });
 
@@ -92,18 +93,6 @@ export default function Gallery() {
           onClick={closeModal}
         >
           <div {...swipeHandlers} className="relative">
-            {/* PRZYCISK ZAMKNIJ */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                closeModal();
-              }}
-              className="absolute top-4 right-4 text-white text-3xl font-bold z-50"
-              aria-label="Zamknij podgląd"
-            >
-              &times;
-            </button>
-
             <img
               src={selectedImage}
               alt="Podgląd"
