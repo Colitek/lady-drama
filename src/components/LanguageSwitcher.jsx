@@ -35,9 +35,11 @@ export default function LanguageSwitcher() {
   };
 
   const changeLanguage = async (lng) => {
-    await i18n.changeLanguage(lng);
-    setOpen(false);
-  };
+  await i18n.changeLanguage(lng);
+  setOpen(false);
+  window.dispatchEvent(new CustomEvent("close-mobile-menu")); // <- dodaj to
+};
+
 
   useEffect(() => {
     function onClickOutside(e) {
@@ -56,6 +58,14 @@ export default function LanguageSwitcher() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+  window.addEventListener("close-mobile-menu", closeMenu);
+  return () => window.removeEventListener("close-mobile-menu", closeMenu);
+}, []);
 
   // Definicja obsługiwanych języków
   const languages = [

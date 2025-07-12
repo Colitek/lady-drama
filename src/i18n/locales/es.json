@@ -58,5 +58,16 @@
       "emailLabel": "Correo electrónico:",
       "phoneLabel": "Teléfono:"
     }
-  }
+  },
+  "partners": {
+  "title": "Nuestros socios"
+},
+"footer": {
+  "rightsReserved": "Todos los derechos reservados."
+},
+"socialBar": {
+  "followUs": "Síguenos en"
+}
+
+
 }

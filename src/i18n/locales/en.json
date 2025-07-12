@@ -58,6 +58,16 @@
       "emailLabel": "Email:",
       "phoneLabel": "Phone:"
     }
-  }
+  },
+  "partners": {
+  "title": "Our partners"
+},
+"footer": {
+  "rightsReserved": "All rights reserved."
+},"socialBar": {
+  "followUs": "Follow us on"
+}
+
+
 
 }

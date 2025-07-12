@@ -59,7 +59,18 @@
       "emailLabel": "E-mail:",
       "phoneLabel": "Telefon:"
     }
-  }
+  },
+  "partners":{
+    "title":"Współpracują z nami"
+  },
+  "footer": {
+  "rightsReserved": "Wszelkie prawa zastrzeżone."
+},
+"socialBar": {
+  "followUs": "Obserwuj nas na"
+}
+
+
   
   
 }

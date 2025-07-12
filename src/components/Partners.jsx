@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { useTranslation } from "react-i18next";
 
 const partners = [
   {
@@ -135,10 +136,11 @@ const partners = [
 ];
 
 export default function Partners() {
+  const { t } = useTranslation();
   return (
     <section className="bg-gray-100 py-12">
       <div className="max-w-6xl mx-auto px-6">
-        <h3 className="text-2xl font-bold text-center mb-8">Współpracują z nami</h3>
+        <h3 className="text-2xl font-bold text-center mb-8">{t("partners.title")}</h3>
         <Swiper
           modules={[Autoplay]}
           loop={true}
@@ -148,7 +150,7 @@ export default function Partners() {
             disableOnInteraction: false,
             pauseOnMouseEnter: false,
           }}
-          speed={8000}
+          speed={4000}
           slidesPerView={2.0}
           spaceBetween={0}
           breakpoints={{

@@ -13,6 +13,7 @@ import Partners from "../components/Partners";
 import Footer from "../components/Footer";
 import SocialBar from "../components/SocialBar";
 import About from "../components/About";
+import SocialBarMobile from "../components/SocialBarMobile";
 import { Helmet } from "react-helmet";
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
        <AboutSection />
        <About />
        <Gallery />
+       <SocialBarMobile />
        <Contact />
        <Partners />
 
