@@ -7,6 +7,7 @@ export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const buttonRef = useRef(null);
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'pl').toUpperCase().slice(0, 2);
 
   const toggleOpen = () => {
     if (buttonRef.current) {
@@ -54,7 +55,9 @@ export default function LanguageSwitcher() {
         type="button"
       >
         <LiaGlobeEuropeSolid className="w-5 h-5" />
-        <span className="text-xs font-medium">{i18n.language.toUpperCase()}</span>
+        <span className="text-xs font-medium">
+  {(i18n.resolvedLanguage || i18n.language || 'pl').slice(0, 2).toUpperCase()}
+</span>
       </button>
 
       {open && (
