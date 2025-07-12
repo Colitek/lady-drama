@@ -1,0 +1,31 @@
+{
+  "welcome": "Witamy na naszej stronie",
+  "about": "O nas",
+  "menu": {
+    "collections": "Kolekcje",
+    "gallery": "Galeria",
+    "about": "O Marce",
+    "cooperation": "Współpraca",
+    "contact": "Kontakt"
+  },
+  "banner": {
+    "collectionAvailable": "Nowa kolekcja jest już dostępna!",
+    "timeLeft": "Do nowej kolekcji pozostało",
+    "day_singular": "dzień",
+    "day_few": "dni",
+    "day_many": "dni",
+    "hour_singular": "godzina",
+    "hour_few": "godziny",
+    "hour_many": "godzin",
+    "minute_singular": "minuta",
+    "minute_few": "minuty",
+    "minute_many": "minut",
+    "second_singular": "sekunda",
+    "second_few": "sekundy",
+    "second_many": "sekund"
+  },
+  "video": {
+    "title":"LADY DRAMA SHOW",
+    "description":"LETNI ROZDZIAŁ"
+  }
+}

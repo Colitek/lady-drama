@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Video() {
+  const { t, i18n } = useTranslation();
   return (
     <section className="video-container relative w-full h-[400px] md:h-[600px] overflow-hidden">
       <video
@@ -20,10 +22,10 @@ export default function Video() {
 
       <div className="video-text absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10">
         <h2 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
-          LADY DRAMA SHOW
+           {t("video.title")}
         </h2>
         <p className="text-xl md:text-2xl mt-2 drop-shadow-lg">
-          SPRING CHAPTER
+          {t("video.description")}
         </p>
       </div>
     </section>

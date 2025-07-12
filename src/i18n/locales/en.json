@@ -1,0 +1,31 @@
+{
+  "welcome": "Welcome to our website",
+  "about": "About us",
+  "menu": {
+    "collections": "Collections",
+    "gallery": "Gallery",
+    "about": "About",
+    "cooperation": "Cooperation",
+    "contact": "Contact"
+  },
+  "banner": {
+    "collectionAvailable": "The new collection is now available!",
+    "timeLeft": "Time left until the new collection",
+    "day_singular": "day",
+    "day_few": "days",
+    "day_many": "days",
+    "hour_singular": "hour",
+    "hour_few": "hours",
+    "hour_many": "hours",
+    "minute_singular": "minute",
+    "minute_few": "minutes",
+    "minute_many": "minutes",
+    "second_singular": "second",
+    "second_few": "seconds",
+    "second_many": "seconds"
+  },
+  "video": {
+    "title":"LADY DRAMA SHOW",
+    "description":"SUMMER CHAPTER"
+  }
+}

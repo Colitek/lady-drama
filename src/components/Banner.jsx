@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Banner() {
   const [visible, setVisible] = useState(true);
   const [timeLeft, setTimeLeft] = useState("");
   const [showCountdown, setShowCountdown] = useState(true);
+  const { t, i18n } = useTranslation();
 
-  // Funkcja do odmiany słów (dni, godziny, minuty itd.)
+  // Funkcja do odmiany słów z tłumaczeniami
   const pluralize = (count, forms) => {
+    // forms: [singular, few, many]
     const absCount = Math.abs(count);
-    if (absCount === 1) return `${count} ${forms[0]}`;
-    if (absCount % 10 >= 2 && absCount % 10 <= 4 && (absCount % 100 < 10 || absCount % 100 >= 20))
-      return `${count} ${forms[1]}`;
-    return `${count} ${forms[2]}`;
+    if (i18n.language === "pl") {
+      if (absCount === 1) return `${count} ${forms[0]}`;
+      if (
+        absCount % 10 >= 2 &&
+        absCount % 10 <= 4 &&
+        (absCount % 100 < 10 || absCount % 100 >= 20)
+      )
+        return `${count} ${forms[1]}`;
+      return `${count} ${forms[2]}`;
+    } else {
+      // dla angielskiego zwykły plural, dodajemy 's' jeśli count !== 1
+      return `${count} ${count === 1 ? forms[0] : forms[2]}`;
+    }
   };
 
-  // Aktualizacja licznika odliczania
   useEffect(() => {
-    const targetDate = new Date("2025-06-21T13:00:00");
+    const targetDate = new Date("2025-07-19T13:00:00");
     const hideAfterDays = 7;
 
     const updateCountdown = () => {
@@ -29,7 +40,7 @@ export default function Banner() {
       }
 
       if (difference <= 0) {
-        setTimeLeft("Nowa kolekcja jest już dostępna!");
+        setTimeLeft(t("banner.collectionAvailable"));
         return;
       }
 
@@ -39,20 +50,47 @@ export default function Banner() {
       const seconds = Math.floor((difference / 1000) % 60);
 
       const parts = [];
-      if (days > 0) parts.push(pluralize(days, ["dzień", "dni", "dni"]));
-      if (hours > 0) parts.push(pluralize(hours, ["godzina", "godziny", "godzin"]));
-      if (minutes > 0) parts.push(pluralize(minutes, ["minuta", "minuty", "minut"]));
-      if (seconds > 0) parts.push(pluralize(seconds, ["sekunda", "sekundy", "sekund"]));
+      if (days > 0)
+        parts.push(
+          pluralize(days, [
+            t("banner.day_singular"),
+            t("banner.day_few"),
+            t("banner.day_many"),
+          ])
+        );
+      if (hours > 0)
+        parts.push(
+          pluralize(hours, [
+            t("banner.hour_singular"),
+            t("banner.hour_few"),
+            t("banner.hour_many"),
+          ])
+        );
+      if (minutes > 0)
+        parts.push(
+          pluralize(minutes, [
+            t("banner.minute_singular"),
+            t("banner.minute_few"),
+            t("banner.minute_many"),
+          ])
+        );
+      if (seconds > 0)
+        parts.push(
+          pluralize(seconds, [
+            t("banner.second_singular"),
+            t("banner.second_few"),
+            t("banner.second_many"),
+          ])
+        );
 
-      setTimeLeft(`Do nowej kolekcji pozostało: ${parts.join(" ")}`);
+      setTimeLeft(`${t("banner.timeLeft")}: ${parts.join(" ")}`);
     };
 
     updateCountdown();
     const timer = setInterval(updateCountdown, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [t, i18n.language]);
 
-  // Wykrywanie scrolla i ustawienie widoczności
   useEffect(() => {
     const updateBannerVisibility = () => {
       const isVisible = window.scrollY === 0;
@@ -60,14 +98,12 @@ export default function Banner() {
       window.dispatchEvent(new CustomEvent("banner-visibility", { detail: isVisible }));
     };
 
-    // Wywołaj raz przy załadowaniu strony
     updateBannerVisibility();
 
     window.addEventListener("scroll", updateBannerVisibility);
     return () => window.removeEventListener("scroll", updateBannerVisibility);
   }, []);
 
-  // Nie renderuj, jeśli nie trzeba
   if (!showCountdown || !timeLeft || !visible) return null;
 
   return (

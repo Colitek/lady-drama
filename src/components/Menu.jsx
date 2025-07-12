@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Banner from "./Banner";
 import LanguageSwitcher from "./LanguageSwitcher";
-
+import { useTranslation } from "react-i18next";
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const { t } = useTranslation();
 useEffect(() => {
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -57,19 +57,19 @@ useEffect(() => {
 <div className="hidden md:flex items-center space-x-6">
   <nav className="flex space-x-8 text-sm uppercase font-medium mr-6">
     <a href="#collection" className="hover-custom">
-      Kolekcje
+       {t("menu.collections")}
     </a>
     <a href="#gallery" className="hover-custom">
-      Galeria
+      {t("menu.gallery")}
     </a>
     <a href="#about" className="hover-custom">
-      O Marce
+      {t("menu.about")}
     </a>
     <a href="#cooperation" className="hover-custom">
-      Współpraca
+      {t("menu.cooperation")}
     </a>
     <a href="#contact" className="hover-custom">
-      Kontakt
+      {t("menu.contact")}
     </a>
     
   </nav>
@@ -112,35 +112,35 @@ useEffect(() => {
               onClick={() => setMenuOpen(false)}
               className="hover-custom"
             >
-              Kolekcje
+               {t("menu.collections")}
             </a>
             <a
               href="#gallery"
               onClick={() => setMenuOpen(false)}
               className="hover-custom"
             >
-              Galeria
+              {t("menu.gallery")}
             </a>
             <a
               href="#about"
               onClick={() => setMenuOpen(false)}
               className="hover-custom"
             >
-              O Marce
+              {t("menu.about")}
             </a>
                         <a
               href="#cooperation"
               onClick={() => setMenuOpen(false)}
               className="hover-custom"
             >
-              Współpraca
+              {t("menu.cooperation")}
             </a>
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
               className="hover-custom"
             >
-              Kontakt
+              {t("menu.contact")}
             </a>
     <div className="pt-2 border-t border-gray-200 ">
       <LanguageSwitcher />
