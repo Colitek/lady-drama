@@ -1,14 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { LiaGlobeEuropeSolid } from "react-icons/lia";
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
   const buttonRef = useRef(null);
-  const dropdownRef = useRef(null);
 
   const toggleOpen = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const dropdownWidth = 112; // approx width of dropdown (w-28 = 7rem = 112px)
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      let left = rect.left + rect.width / 2; // środek przycisku
+      // przesunięcie tak, aby dropdown był wyśrodkowany względem przycisku i nie wychodził poza ekran
+      if (left + dropdownWidth / 2 > viewportWidth) {
+        left = viewportWidth - dropdownWidth / 2 - 8; // 8px margines od krawędzi
+      }
+      if (left - dropdownWidth / 2 < 8) {
+        left = dropdownWidth / 2 + 8;
+      }
+
+      let top = rect.bottom + 4; // 4px odstęp od przycisku
+
+      // jeśli dropdown wyjdzie poza dół viewportu, pokaż go nad przyciskiem
+      const dropdownHeight = 2 * 40; // 2 przyciski po ok 40px wysokości (można dostosować)
+      if (top + dropdownHeight > viewportHeight) {
+        top = rect.top - dropdownHeight - 4;
+      }
+
+      setPosition({ top, left });
+    }
     setOpen((prev) => !prev);
   };
 
@@ -17,28 +42,32 @@ export default function LanguageSwitcher() {
     setOpen(false);
   };
 
-  // Zamknięcie po kliknięciu poza
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        buttonRef.current &&
-        !buttonRef.current.contains(e.target) &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target)
-      ) {
+    function onClickOutside(e) {
+      if (buttonRef.current && !buttonRef.current.contains(e.target)) {
         setOpen(false);
       }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
+
+  useEffect(() => {
+    function onScroll() {
+      setOpen(false);
+    }
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <div className="relative inline-block z-50">
+    <div ref={buttonRef} className="inline-block z-50">
       <button
         onClick={toggleOpen}
         className="flex items-center space-x-1 text-ladydrama hover:text-ladydrama-light transition"
-        ref={buttonRef}
+        aria-haspopup="true"
+        aria-expanded={open}
+        type="button"
       >
         <LiaGlobeEuropeSolid className="w-5 h-5" />
         <span className="text-xs font-medium">
@@ -48,8 +77,12 @@ export default function LanguageSwitcher() {
 
       {open && (
         <div
-          ref={dropdownRef}
-          className="absolute right-0 mt-2 w-28 bg-white border border-gray-300 rounded-lg shadow-md"
+          className="fixed w-28 bg-white border border-gray-300 rounded-lg shadow-md z-[9999]"
+          style={{
+            top: position.top + "px",
+            left: position.left + "px",
+            transform: "translateX(-50%)",
+          }}
         >
           <button
             type="button"
