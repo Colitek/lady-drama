@@ -7,37 +7,36 @@ const galleryImages = [
   "images-webp/3.webp",
   "images-webp/4.webp",
   "images-webp/5.webp",
-  "images-webp/6.webp"
+  "images-webp/6.webp",
 ];
-
-
 
 export default function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
-const goNext = () => {
-  setSelectedIndex((prev) =>
-    prev === galleryImages.length - 1 ? 0 : prev + 1
-  );
-};
+  const closeModal = () => {
+    setIsVisible(false);
+    setTimeout(() => setSelectedIndex(null), 600);
+  };
 
-const goPrev = () => {
-  setSelectedIndex((prev) =>
-    prev === 0 ? galleryImages.length - 1 : prev - 1
-  );
-};
+  const goNext = () => {
+    setSelectedIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
+    );
+  };
 
+  const goPrev = () => {
+    setSelectedIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (selectedIndex !== null) {
         if (e.key === "ArrowRight") goNext();
         if (e.key === "ArrowLeft") goPrev();
-        if (e.key === "Escape") {
-          setIsVisible(false);
-          setTimeout(() => setSelectedIndex(null), 600);
-        }
+        if (e.key === "Escape") closeModal();
       }
     };
 
@@ -45,18 +44,15 @@ const goPrev = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex]);
 
-  const selectedImage = selectedIndex !== null ? galleryImages[selectedIndex] : null;
-
+  const selectedImage =
+    selectedIndex !== null ? galleryImages[selectedIndex] : null;
 
   const swipeHandlers = useSwipeable({
-  onSwipedLeft: () => setSelectedIndex((prev) =>
-    prev === galleryImages.length - 1 ? 0 : prev + 1
-  ),
-  onSwipedRight: () => setSelectedIndex((prev) =>
-    prev === 0 ? galleryImages.length - 1 : prev - 1
-  ),
-  trackMouse: true, // opcjonalnie: działa też z myszką
-});
+    onSwipedLeft: goNext,
+    onSwipedRight: goPrev,
+    onSwipedDown: closeModal,
+    trackMouse: true,
+  });
 
   return (
     <>
@@ -89,45 +85,48 @@ const goPrev = () => {
 
       {/* MODAL Z PODGLĄDEM ZDJĘCIA */}
       {selectedImage && (
-  <div
-    className={`fixed inset-0 h-full w-full bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300 ${
-      isVisible ? "opacity-100" : "opacity-0"
-    }`}
-    onClick={() => {
-      setIsVisible(false);
-      setTimeout(() => setSelectedIndex(null), 600);
-    }}
-  >
-    <div {...swipeHandlers}>
-      <img
-        src={selectedImage}
-        alt="Podgląd"
-        className={`max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-lg transform transition-transform duration-300 ${
-          isVisible ? "scale-100" : "scale-90"
-        }`}
-        onClick={(e) => {
-          e.stopPropagation();
-          const rect = e.currentTarget.getBoundingClientRect();
-          const clickX = e.clientX - rect.left;
-          if (clickX > rect.width / 2) {
-            setSelectedIndex((prev) =>
-              prev === galleryImages.length - 1 ? 0 : prev + 1
-            );
-          } else {
-            setSelectedIndex((prev) =>
-              prev === 0 ? galleryImages.length - 1 : prev - 1
-            );
-          }
-        }}
-        onContextMenu={(e) => e.preventDefault()}
-        draggable={false}
-        onDragStart={(e) => e.preventDefault()}
-      />
-    </div>
-  </div>
-)}
+        <div
+          className={`fixed inset-0 h-full w-full bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={closeModal}
+        >
+          <div {...swipeHandlers} className="relative">
+            {/* PRZYCISK ZAMKNIJ */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                closeModal();
+              }}
+              className="absolute top-4 right-4 text-white text-3xl font-bold z-50"
+              aria-label="Zamknij podgląd"
+            >
+              &times;
+            </button>
 
-
+            <img
+              src={selectedImage}
+              alt="Podgląd"
+              className={`max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-lg transform transition-transform duration-300 ${
+                isVisible ? "scale-100" : "scale-90"
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                const rect = e.currentTarget.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                if (clickX > rect.width / 2) {
+                  goNext();
+                } else {
+                  goPrev();
+                }
+              }}
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
+              onDragStart={(e) => e.preventDefault()}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
